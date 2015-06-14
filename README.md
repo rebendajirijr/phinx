@@ -1,2 +1,2 @@
 # phinx
-Phinx database migration tool extension for Nette Framework
+Phinx database migration extension for Nette Framework
