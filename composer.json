@@ -1,0 +1,25 @@
+{
+    "name": "jr/phinx",
+    "description": "Phinx database migration extension for Nette Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jiri Rebenda",
+            "email": "jiri.rebenda@htmldriven.com"
+        }
+    ],
+    "minimum-stability": "dev",
+	"require": {
+        "nette/nette": "^2.3@dev",
+        "kdyby/console": "^2.4@dev",
+        "robmorgan/phinx": "dev-master"
+    },
+    "require-dev": {
+        "nette/tester": "^1.4@dev"
+    },
+	"autoload": {
+		"psr-0": {
+			"JR\\Phinx": "src/"
+		}
+	}
+}

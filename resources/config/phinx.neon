@@ -1,0 +1,11 @@
+extensions:
+	console: Kdyby\Console\DI\ConsoleExtension
+
+console:
+	commands:
+		- Phinx\Console\Command\Init
+		- Phinx\Console\Command\Create
+		- Phinx\Console\Command\Migrate
+		- Phinx\Console\Command\Rollback
+		- Phinx\Console\Command\Status
+		- Phinx\Console\Command\Test
