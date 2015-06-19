@@ -11,6 +11,3 @@ console:
 		- Phinx\Console\Command\Test
 		- JR\Phinx\Console\MigrateCommand
 	url: 'http://www.htmldriven.com'
-
-services:
-	- Kdyby\Console\Application
