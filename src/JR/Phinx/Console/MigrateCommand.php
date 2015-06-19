@@ -25,7 +25,7 @@ class MigrateCommand extends Command
 		$this->setName('phinx:migrate')
 			->setDescription('Processes all registered migration configurations.')
 			->addOption('--environment', '-e', InputOption::VALUE_REQUIRED, 'The target environment')
-			->addOption('--version', '-v', InputOption::VALUE_OPTIONAL, 'The version number to migrate to');
+			->addOption('--target', '-t', InputOption::VALUE_OPTIONAL, 'The version number to migrate to');
 	}
 	
 	/*
