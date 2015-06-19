@@ -30,8 +30,7 @@ class PhinxExtension extends CompilerExtension
 		
 		$manager = $container->addDefinition($this->prefix('manager'))
 			->setClass('JR\Phinx\Manager', [NULL])
-			->setInject(FALSE)
-			->setAutowired(FALSE);
+			->setInject(FALSE);
 		
 		foreach ($this->compiler->getExtensions('JR\Phinx\DI\IMigrationProvider') as $extension) {
 			/* @var $extension IMigrationProvider */
