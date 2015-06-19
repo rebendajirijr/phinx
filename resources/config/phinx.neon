@@ -9,3 +9,8 @@ console:
 		- Phinx\Console\Command\Rollback
 		- Phinx\Console\Command\Status
 		- Phinx\Console\Command\Test
+		- JR\Phinx\Console\MigrateCommand
+	url: 'http://www.htmldriven.com'
+
+services:
+	- Kdyby\Console\Application

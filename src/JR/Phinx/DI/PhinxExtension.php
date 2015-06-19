@@ -11,6 +11,13 @@ use Nette\DI\CompilerExtension;
  */
 class PhinxExtension extends CompilerExtension
 {
+	/** @var array */
+	public $defaults = [
+		'config' => [
+			'files' => [],
+		],
+	];
+	
 	/*
 	 * @inheritdoc
 	 */
@@ -18,5 +25,19 @@ class PhinxExtension extends CompilerExtension
 	{
 		$config = $this->loadFromFile(__DIR__ . '/../../../../resources/config/phinx.neon');
 		$this->compiler->parseServices($this->getContainerBuilder(), $config);
+		
+		$container = $this->getContainerBuilder();
+		
+		$manager = $container->addDefinition($this->prefix('manager'))
+			->setClass('JR\Phinx\Manager', [NULL])
+			->setInject(FALSE)
+			->setAutowired(FALSE);
+		
+		foreach ($this->compiler->getExtensions('JR\Phinx\DI\IMigrationProvider') as $extension) {
+			/* @var $extension IMigrationProvider */
+			foreach ($extension->getMigrationConfigurations() as $migrationConfiguration) {
+				$manager->addSetup('addMigrationConfiguration', [$migrationConfiguration]);
+			}
+		}
 	}
 }
