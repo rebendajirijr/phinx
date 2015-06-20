@@ -11,12 +11,11 @@ use Nette\DI\CompilerExtension;
  */
 class PhinxExtension extends CompilerExtension
 {
+	/** @var string */
+	const MANAGER_SERVICE_BASENAME = 'manager';
+	
 	/** @var array */
-	public $defaults = [
-		'config' => [
-			'files' => [],
-		],
-	];
+	public $defaults = [];
 	
 	/*
 	 * @inheritdoc
@@ -27,10 +26,20 @@ class PhinxExtension extends CompilerExtension
 		$this->compiler->parseServices($this->getContainerBuilder(), $config);
 		
 		$container = $this->getContainerBuilder();
+		$config = $this->validateConfig($this->defaults);
 		
-		$manager = $container->addDefinition($this->prefix('manager'))
+		$container->addDefinition($this->prefix(static::MANAGER_SERVICE_BASENAME))
 			->setClass('JR\Phinx\Manager', [NULL])
-			->setInject(FALSE);
+			->setInject(FALSE);		
+	}
+	
+	/*
+	 * @inheritdoc
+	 */
+	public function beforeCompile()
+	{
+		$container = $this->getContainerBuilder();
+		$manager = $container->getDefinition($this->prefix(static::MANAGER_SERVICE_BASENAME));
 		
 		foreach ($this->compiler->getExtensions('JR\Phinx\DI\IMigrationProvider') as $extension) {
 			/* @var $extension IMigrationProvider */
