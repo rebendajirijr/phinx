@@ -30,7 +30,7 @@ class PhinxExtension extends CompilerExtension
 		
 		$container->addDefinition($this->prefix(static::MANAGER_SERVICE_BASENAME))
 			->setClass('JR\Phinx\Manager', [NULL])
-			->setInject(FALSE);		
+			->setInject(FALSE);
 	}
 	
 	/*

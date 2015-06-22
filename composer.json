@@ -19,7 +19,7 @@
     },
 	"autoload": {
 		"psr-0": {
-			"JR\\Phinx": "src/"
+			"JR\\Phinx\\": "src/"
 		}
 	}
 }
