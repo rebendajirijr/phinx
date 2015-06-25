@@ -37,7 +37,7 @@ class MigrateCommand extends Command
 		$manager = $this->getHelper('container')->getByType('JR\Phinx\Manager');
 		
 		$environment = $input->getOption('environment');
-		$version = $input->getOption('version');
+		$version = $input->getOption('target');
 		
 		$manager->migrate($environment, $version);
 		return 0;
