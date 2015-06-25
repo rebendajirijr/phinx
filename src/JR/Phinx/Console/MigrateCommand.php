@@ -22,7 +22,7 @@ class MigrateCommand extends Command
 	{
 		parent::configure();
 		
-		$this->setName('phinx:migrate')
+		$this->setName('jr:phinx:migrate')
 			->setDescription('Processes all registered migration configurations.')
 			->addOption('--environment', '-e', InputOption::VALUE_REQUIRED, 'The target environment')
 			->addOption('--target', '-t', InputOption::VALUE_OPTIONAL, 'The version number to migrate to');
